@@ -8,7 +8,11 @@ const app = express();
 const PORT = 3000;
 
 // Middleware
-app.use(cors());
+app.use(cors({
+    origin: 'https://stellar-travesseiro-db197c.netlify.app/', // Replace with your actual Netlify URL
+    methods: 'GET,POST',
+    allowedHeaders: 'Content-Type'
+}));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
